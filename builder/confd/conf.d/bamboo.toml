@@ -1,0 +1,7 @@
+[template]
+src = "production.json.tmpl"
+dest = "/var/bamboo/config/production.json"
+keys = [
+    "/"
+]
+reload_cmd = "supervisorctl restart bamboo"

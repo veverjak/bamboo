@@ -1,7 +1,4 @@
 #!/bin/bash
-if [[ -n $BAMBOO_DOCKER_AUTO_HOST ]]; then
-sed -i "s/^.*Endpoint\": \"\(http:\/\/haproxy-ip-address:8000\)\".*$/    \"EndPoint\": \"http:\/\/$HOST:8000\",/" \
-    ${CONFIG_PATH:=config/production.example.json}
-fi
+confd -onetime -backend etcd -node=`cat /etc/ip`:4001 -prefix=$ETCD_BASEPATH
 haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid
 /usr/bin/supervisord
