@@ -19,8 +19,8 @@
   },
 
   "StatsD": {
-    "Enabled": false,
-    "Host": "localhost:8125",
-    "Prefix": "bamboo-server.development."
+    "Enabled": true,
+    "Host": "{{getenv "STATSD_IP"}}:{{getenv "STATSD_PORT"}}",
+    "Prefix": "bamboo."
   }
 }
