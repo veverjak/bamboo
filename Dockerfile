@@ -26,6 +26,6 @@ ADD builder/confd /etc/confd/
 RUN mkdir -p /var/log/supervisor
 VOLUME /var/log/supervisor
 
-EXPOSE 80 8000
+EXPOSE 81 80 8000
 
 CMD /run.sh
